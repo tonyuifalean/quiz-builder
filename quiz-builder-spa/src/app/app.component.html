@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <h3><a class="quiz-builder-logo" mat-button routerLink="quiz-list">Quiz Builder App</a></h3>
+  <span class="login-button-wrapper">
+    <a *ngIf="!authService.currentUserValue; else logout" mat-button routerLink="auth">
+      <mat-icon>login</mat-icon> Login
+    </a>
+  </span>
+</mat-toolbar>
+
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>
+
+<ng-template #logout>
+  <a *ngIf="authService.currentUserValue; else logout" mat-button href="#" (click)="logoutUser()">
+    <mat-icon>logout</mat-icon> Logout
+  </a>
+</ng-template>

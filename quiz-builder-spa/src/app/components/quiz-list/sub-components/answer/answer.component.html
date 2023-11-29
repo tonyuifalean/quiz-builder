@@ -1,0 +1,11 @@
+<div [formGroup]="answerFormGroup" class="answer-wrapper" autocomplete="off">
+  <h4>
+    <span>Answer {{formControlName + 1}}</span>
+    <mat-icon *ngIf="formControlName > 1" (click)="deleteAnswer()">delete</mat-icon>
+  </h4>
+  <mat-form-field>
+    <mat-label>Text</mat-label>
+    <input matInput formControlName="text" />
+  </mat-form-field>
+  <mat-checkbox class="example-margin" formControlName="correct">Correct answer</mat-checkbox>
+</div>

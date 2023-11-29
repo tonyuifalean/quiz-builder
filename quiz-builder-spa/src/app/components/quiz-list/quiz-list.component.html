@@ -1,0 +1,22 @@
+<h1 class="page-title">Quiz List</h1>
+<div class="quiz-list-content">
+  <div *ngIf="showLoader" class="spinner-wrapper">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+  <div *ngIf="!showLoader">
+    <div class="quiz-list-wrapper">
+      <div *ngFor="let quiz of quizList">
+        <div class="quiz-wrapper">
+          <span class="quiz-title">{{quiz.title}}</span>
+          <span>
+            <mat-icon (click)="navigateToQuiz(quiz.publicId)">open_in_new</mat-icon>
+            <mat-icon (click)="deleteQuiz(quiz.publicId)">delete</mat-icon>
+            <mat-icon (click)="copyToClipboard(quiz.publicId)">content_copy</mat-icon>
+          </span>
+        </div>
+      </div>
+      <p *ngIf="!quizList.length" class="no-items">-- No quizzes added yet --</p>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" (click)="addNewQuiz()">Add Quiz</button>
+</div>

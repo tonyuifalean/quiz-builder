@@ -1,0 +1,21 @@
+<div [formGroup]="questionFormGroup" class="question-wrapper" autocomplete="off">
+  <h3>
+    <span>Question {{formControlName + 1}}</span>
+    <mat-icon *ngIf="formControlName > 0" (click)="deleteQuestion()">delete</mat-icon>
+  </h3>
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+  <div formArrayName="answers">
+    <div *ngFor="let answer of answers.controls; let i = index">
+      <app-answer [formControlName]="i" (deleteAnswerEvent)="deleteAnswer(i)"></app-answer>
+    </div>
+  </div>
+  <button mat-raised-button
+            color="primary"
+            [disabled]="answers.length >= 5"
+            (click)="addNewAnswer()">
+            Add answer
+    </button>
+</div>

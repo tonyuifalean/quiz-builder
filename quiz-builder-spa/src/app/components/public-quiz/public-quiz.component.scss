@@ -1,0 +1,39 @@
+form {
+  max-width: calc(100vw - 120px);
+  width: 1000px;
+}
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 4px;
+
+  li {
+    margin-top: 2px;
+
+    ::ng-deep .mat-radio-label {
+      height: 24px;
+    }
+  }
+}
+
+.quiz-result {
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.not-found {
+  margin: 0;
+  text-align: center;
+}

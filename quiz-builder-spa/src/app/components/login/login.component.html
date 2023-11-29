@@ -1,0 +1,32 @@
+<h1 class="page-title">Login / Register</h1>
+<form [formGroup]="loginFormGroup" autocomplete="off">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input autofocus matInput formControlName="username" />
+    <mat-error *ngIf="formControls['username'].hasError('email') && !formControls['username'].hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" type="password" />
+  </mat-form-field>
+  <div class="buttons-wrapper">
+    <button mat-raised-button
+            color="primary"
+            type="submit"
+            (click)="authenticate(false)"
+            [disabled]="loginFormGroup.invalid">
+            Login
+    </button>
+    <button mat-raised-button
+            color="primary"
+            type="submit"
+            (click)="authenticate(true)"
+            [disabled]="loginFormGroup.invalid">
+            Register
+    </button>
+  </div>
+</form>
+
+

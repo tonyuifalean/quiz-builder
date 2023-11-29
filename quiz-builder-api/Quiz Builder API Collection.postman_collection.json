@@ -1,0 +1,136 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Quiz Builder API Collection",
+		"_postman_id": "06518c3c-b212-9954-955d-2081515b5b4d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"url": "http://localhost:3000/user/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"test@gmail.com\",\n\t\"password\": \"pass\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"url": "http://localhost:3000/user/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"username\": \"test@gmail.com\",\n\t\"password\": \"pass\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Quiz List",
+			"request": {
+				"url": "http://localhost:3000/quiz/list",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAZ21haWwuY29tIiwic3ViIjowLCJpYXQiOjE2NjQ1MTc3MjksImV4cCI6MTY2NDUxNzc4OX0.IMODxrksycz4uGJjWvQ1_YE-Zw6T1i7ui2Wjt1x1Fpk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"dragos\",\n\t\"password\": \"mypassword\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Public Quiz",
+			"request": {
+				"url": "http://localhost:3000/quiz/public/7uem09",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"dragos\",\n\t\"password\": \"mypassword\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Quiz",
+			"request": {
+				"url": "http://localhost:3000/quiz",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAZ21haWwuY29tIiwic3ViIjowLCJpYXQiOjE2NjQ1MTc1OTEsImV4cCI6MTY2NDUxNzY1MX0.XkTwDuOGkTl7_jrIczSUeffygv0leVnX_BKnTTnt4So",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\": 0,\n    \"title\": \"Quiz Builder App\",\n    \"questions\": [\n    \t\t\t\t{\n    \t\t\t\t\t\"title\": \"Moon is a star\",\n            \t\t\t\"answers\": [\n            \t\t\t\t\t\t\t{\n                \t\t\t\t\t\t\t\"text\": \"Yes\",\n                        \t\t\t\t\t\"correct\": false\n                    \t\t\t\t\t},\n                    \t\t\t\t\t{\n                        \t\t\t\t\t\"text\": \"No\",\n                        \t\t\t\t\t\"correct\": true\n                    \t\t\t\t\t}\n                        ]\n    \t\t\t\t},\n    \t\t\t\t{\n    \t\t\t\t\t\"title\": \"Temperature can be measured in\",\n            \t\t\t\"answers\": [\n            \t\t\t\t\t\t\t{\n                \t\t\t\t\t\t\t\"text\": \"Kelvin\",\n                        \t\t\t\t\t\"correct\": true\n                    \t\t\t\t\t},\n                    \t\t\t\t\t{\n                        \t\t\t\t\t\"text\": \"Fahrenheit\",\n                        \t\t\t\t\t\"correct\": true\n                    \t\t\t\t\t},\n                    \t\t\t\t\t{  \n                    \t\t\t\t\t\t\"text\": \"Grams\",\n                    \t\t\t\t\t\t\"correct\": false\n                    \t\t\t\t\t},\n                    \t\t\t\t\t{\n                    \t\t\t\t\t\t\"text\": \"Celsius\",\n                    \t\t\t\t\t\t\"correct\": true\n                    \t\t\t\t\t},\n                    \t\t\t\t\t{\n                    \t\t\t\t\t\t\"text\": \"Liter\",\n                    \t\t\t\t\t\t\"correct\": false\n                    \t\t\t\t\t}\n                        ]\n    \t\t\t\t}\n                ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Quiz",
+			"request": {
+				"url": "http://localhost:3000/quiz/ld1rst",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAZ21haWwuY29tIiwic3ViIjowLCJpYXQiOjE2NjQ1MTc3MjksImV4cCI6MTY2NDUxNzc4OX0.IMODxrksycz4uGJjWvQ1_YE-Zw6T1i7ui2Wjt1x1Fpk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

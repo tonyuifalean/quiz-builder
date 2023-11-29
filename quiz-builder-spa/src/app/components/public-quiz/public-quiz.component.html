@@ -1,0 +1,55 @@
+<form [formGroup]="quizFormGroup">
+  <ng-container *ngIf="!showLoader && publicQuizData && questions.length">
+    <h1 class="page-title">{{publicQuizData.title}}</h1>
+    <div formArrayName="questions">
+      <ng-container *ngFor="let question of questions.controls; let i = index">
+        <ng-container
+          *ngTemplateOutlet="questionItem; context: {$implicit: {question: getQuestionContext(i), i}}">
+        </ng-container>
+      </ng-container>
+    </div>
+    <button mat-raised-button
+      color="primary"
+      type="button"
+      (click)="validateQuiz()">
+      Submit
+    </button>
+    <p *ngIf="quizResult" class="quiz-result">
+      You answered {{quizResult}} questions correctly.
+    </p>
+  </ng-container>
+  <div *ngIf="showLoader" class="spinner-wrapper">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+  <div *ngIf="!showLoader && !publicQuizData" class="spinner-wrapper">
+    <p class="not-found">Quiz not found</p>
+  </div>
+</form>
+
+<ng-template #questionItem let-context>
+    <h2>{{context.i + 1}}. {{context.question.title}}</h2>
+    <div *ngTemplateOutlet="checkboxItem;
+          context: {$implicit: {answers: context.question.answers, i: context.i}}">
+    </div>
+</ng-template>
+
+<ng-template #checkboxItem let-context>
+  <section [formGroup]="quizFormGroup">
+    <div formArrayName="questions">
+      <ul>
+        <li *ngFor="let answer of context.answers">
+          <mat-checkbox [value]="answer.text"
+                        (change)="checkboxChange($event, context.i)">
+                        {{answer.text}}
+          </mat-checkbox>
+        </li>
+      </ul>
+    </div>
+  </section>
+</ng-template>
+
+<button *ngIf="authService.currentUserValue"
+        mat-button
+        routerLink="quiz-list"
+        (click)="backToQuizList()">Back to quiz list
+</button>

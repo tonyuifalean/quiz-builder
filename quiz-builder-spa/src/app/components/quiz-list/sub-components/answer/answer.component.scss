@@ -1,0 +1,14 @@
+.answer-wrapper {
+  padding: 10px 0 0 30px;
+  margin-bottom: 30px;
+
+  h4 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+
+  .mat-icon {
+    cursor: pointer;
+  }
+}

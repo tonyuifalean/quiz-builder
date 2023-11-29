@@ -1,0 +1,27 @@
+<h1 class="page-title">New Quiz</h1>
+<form [formGroup]="quizFormGroup" autocomplete="off">
+  <mat-form-field>
+    <mat-label>Quiz Title</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+  <div formArrayName="questions">
+    <div *ngFor="let question of questions.controls; let i = index">
+      <app-question [formControlName]="i" (deleteQuestionEvent)="deleteQuestion(i)"></app-question>
+    </div>
+  </div>
+  <div class="buttons-wrapper">
+    <button mat-raised-button
+            color="primary"
+            (click)="addNewQuestion()"
+            [disabled]="questions.length >= 10">
+            Add question
+    </button>
+    <button mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="quizFormGroup.invalid"
+            (click)="publishQuiz()">
+            Publish</button>
+  </div>
+</form>
+<button mat-button routerLink="quiz-list" (click)="backToQuizList()">Back to quiz list</button>

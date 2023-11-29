@@ -1,0 +1,40 @@
+.quiz-list-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+  min-height: 100px;
+
+  .spinner-wrapper {
+    margin: 10px 0;
+  }
+
+  .quiz-list-wrapper {
+    margin-bottom: 20px;
+    max-width: calc(100vw - 120px);
+    width: 500px;
+
+    .quiz-title {
+      font-size: 18px;
+    }
+
+    .no-items {
+      text-align: center;
+    }
+  }
+
+  .quiz-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .mat-icon {
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  button {
+    margin-top: 20px;
+  }
+}
